@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head >
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>darkmode</title>
+    <link rel="stylesheet" href="tailwind.css">
+</head>
+<body class="dark:bg-gray-700">
+    <div class="container w-6/12 mx-auto mt-10">
+        <div class="dark:text-white text-black text-center p-5 dark:bg-gray-400 bg-green-200 h-56 w-6/6 my-3">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium iure in natus corrupti sint est reprehenderit sunt temporibus. Nemo incidunt quidem quae a iure nobis similique nulla corporis! Dolorum adipisci voluptate rerum corporis non animi voluptates ipsum odio architecto! Maiores accusantium perspiciatis officiis corporis harum consequuntur obcaecati mollitia porro magnam!
+        </div>
+        <div class="dark:bg-gray-400 bg-green-200 h-40 w-6/6 my-3"></div>
+        <div class="dark:bg-gray-400 bg-green-200 h-14 w-6/6 my-3"></div>
+    </div>
+    <button class="w-1/6 block mx-auto mt-5 bg-green-900 dark:bg-gray-600 text-center py-4 text-white
+    rounded-md focus:outline-none">dark mode nya gan</button>
+</body>
+<script>
+        // cek storage apakah ada key theme ada atau tidak di localstorage
+        // key theme adalah key yang menyimpan status darkmode
+       window.addEventListener('DOMContentLoaded',(event)=> {
+        if(localStorage.theme === 'dark'){
+            document.documentElement.classList.toggle('dark')
+        }else{
+            return;
+        }
+       })
+
+    // event jika tombol diklik
+    document.querySelector("button").addEventListener('click',function(){
+        document.documentElement.classList.toggle('dark')
+        // jika di localstorage tidak tersimpan key theme maka akan membuat key theme / darkmode
+        if(localStorage.theme === undefined){
+            window.localStorage.setItem('theme','dark');
+            console.log(window.localStorage.theme);
+        }else{
+            window.localStorage.removeItem('theme'); 
+            console.log(window.localStorage.theme);
+        }
+
+    })
+</script>
+</html>
